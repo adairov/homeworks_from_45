@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <h1>Список задач</h1>
+
 </head>
 <body>
-
+    <h1>Список задач</h1>
+    {% for plan in plans %}
+        <h3>{{ plan.id }} - {{ plan.title }}</h3>
+    {% endfor %}
+    <br>
+    <a href="tasks/add">Создать новую задачу</a>
 </body>
 </html>
