@@ -9,9 +9,9 @@
     <h1>Список задач</h1>
     {% for plan in plans %}
         <h3>{{ plan.id }} - {{ plan.title }}</h3>
-        <p><a href="task/{{ plan.pk }}/">Подробнее</a></p>
+        <p><a href="{% url "view" plan.pk %}">Подробнее</a></p>
     {% endfor %}
     <br>
-    <a href="tasks/add">Создать новую задачу</a>
+    <a href="{% url "add" %}">Создать новую задачу</a>
 </body>
 </html>

@@ -12,6 +12,6 @@
         <p><b>Статус задачи - </b> {{ task.status }}</p>
         <p><b>Задачу сдать к - </b> {{ task.deadline }}</p>
         <p><b>Описание задачи - </b> {{ task.description }}</p>
-        <a href="/">На главную</a>
+        <a href="{% url "index" %}">На главную</a>
 </body>
 </html>
