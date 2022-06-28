@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
     <h1>Список задач</h1>
     {% for plan in plans %}
@@ -14,4 +9,5 @@
     <br>
     <a href="{% url "add" %}">Создать новую задачу</a>
 </body>
-</html>
+
+{% endblock %}

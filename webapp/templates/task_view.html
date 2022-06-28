@@ -1,12 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
         <p><b>Название задачи -</b> {{ task.title }}</p>
         <p><b>Статус задачи - </b> {{ task.status }}</p>
@@ -14,4 +7,4 @@
         <p><b>Описание задачи - </b> {{ task.description }}</p>
         <a href="{% url "index" %}">На главную</a>
 </body>
-</html>
+{% endblock %}
