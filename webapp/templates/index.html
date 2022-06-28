@@ -9,7 +9,7 @@
     <h1>Список задач</h1>
     {% for plan in plans %}
         <h3>{{ plan.id }} - {{ plan.title }}</h3>
-        <p><a href="task/?pk={{ plan.pk }}">Подробнее</a></p>
+        <p><a href="task/{{ plan.pk }}/">Подробнее</a></p>
     {% endfor %}
     <br>
     <a href="tasks/add">Создать новую задачу</a>

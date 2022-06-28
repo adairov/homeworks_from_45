@@ -5,5 +5,5 @@ from webapp.views import index_view, create_task, task_view
 urlpatterns = [
     path('', index_view),
     path('tasks/add/', create_task),
-    path('task/', task_view)
+    path('task/<int:pk>/', task_view)
 ]
