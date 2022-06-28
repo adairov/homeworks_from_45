@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 from webapp.models import ToDoList, STATUS_CHOICES
 
@@ -21,9 +22,7 @@ def create_task(request):
             deadline = "2022-06-30"
         description = request.POST.get("description")
         new_task = ToDoList.objects.create(title=title, status=status, deadline=deadline, description=description)
-        # context = {"plan": new_task}
-        return HttpResponseRedirect(f"/article/{new_task.pk}")
-        # return render(request, 'index.html', context)
+        return redirect("view", pk=new_task.pk)
 
 def task_view(request, pk):
     # pk = request.GET.get('pk')
