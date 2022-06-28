@@ -6,8 +6,8 @@ STATUS_CHOICES = [('new', 'Новая'), ('in_progress', 'В процессе'),
 
 class ToDoList(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False, verbose_name="Описание")
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, verbose_name="Статус", default='new')
-    deadline = models.DateField(verbose_name="Дедлайн")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, verbose_name="Статус", default=STATUS_CHOICES[0][0])
+    deadline = models.DateField(null=True, blank=True, verbose_name="Дедлайн")
 
     def __str__(self):
         return f"{self.id}. {self.title}:{self.status}"

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from webapp.models import ToDoList
+from webapp.models import ToDoList, STATUS_CHOICES
 
 
 def index_view(request):
@@ -11,11 +11,15 @@ def index_view(request):
 
 def create_task(request):
     if request.method == 'GET':
-        return render(request, 'create_task.html')
+        return render(request, 'create_task.html', {"statuses": STATUS_CHOICES})
     else:
         title = request.POST.get("title"),
         status = request.POST.get("status")
-        new_task = ToDoList.objects.create(title = title, status=status)
+        if request.POST.get("deadline"):
+            deadline = request.POST.get("deadline")
+        else:
+            deadline = "2022-06-30"
+        new_task = ToDoList.objects.create(title=title, status=status, deadline=deadline)
         context = {"plan": new_task}
         return render(request, 'index.html', context)
 

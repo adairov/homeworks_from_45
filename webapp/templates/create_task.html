@@ -13,10 +13,17 @@
         <label>Title:</label><br/>
         <input type="text" name="title"/><br/>
         <label>Status:</label><br/>
-        <input type="text" name="status"/><br/>
+        <select>
+            {% for value, status in statuses %}
+                <option value="{{ value }}"> {{ status }}</option>
+            {% endfor %}
+        </select><br/>
+        <label>Deadline(YYYY-MM-DD):</label><br/>
+        <input type="text" name="deadline"/><br/>
         <br/>
         <input type="submit" value="Send"/>
     </form>
+    <br/>
     <a href="/">На главную</a>
 </body>
 </html>
