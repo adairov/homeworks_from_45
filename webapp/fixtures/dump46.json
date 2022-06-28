@@ -1,0 +1,22 @@
+[
+{
+    "model": "webapp.todolist",
+    "pk": 1,
+    "fields": {
+        "title": "сдать ДЗ 45",
+        "status": "new",
+        "deadline": "2022-06-28",
+        "description": "Домашку сдал с опозданием"
+    }
+},
+{
+    "model": "webapp.todolist",
+    "pk": 2,
+    "fields": {
+        "title": "Сдать ДЗ 46",
+        "status": "new",
+        "deadline": "2022-06-28",
+        "description": "Необходимо успеть сдать домашку вовремя"
+    }
+}
+]
