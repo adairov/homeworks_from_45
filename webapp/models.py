@@ -1,9 +1,12 @@
 from django.db import models
 
 # Create your models here.
+
+STATUS_CHOICES = [('new', 'Новая'), ('in_progress', 'В процессе'),  ('done', 'Сделано')]
+
 class ToDoList(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False, verbose_name="Описание")
-    status = models.CharField(max_length=100, null=False, blank=False, verbose_name="Статус", default="New")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, verbose_name="Статус", default='new')
     deadline = models.DateField(verbose_name="Дедлайн")
 
     def __str__(self):
