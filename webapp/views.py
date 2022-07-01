@@ -28,3 +28,6 @@ def task_view(request, pk):
     # pk = request.GET.get('pk')
     task = ToDoList.objects.get(pk=pk)
     return render(request, 'task_view.html', {'task':task})
+
+def update_task(request, pk):
+    pass
