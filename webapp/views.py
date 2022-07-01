@@ -19,7 +19,7 @@ def create_task(request):
         if request.POST.get("deadline"):
             deadline = request.POST.get("deadline")
         else:
-            deadline = "2022-06-30"
+            deadline = None
         description = request.POST.get("description")
         new_task = ToDoList.objects.create(title=title, status=status, deadline=deadline, description=description)
         return redirect("view", pk=new_task.pk)

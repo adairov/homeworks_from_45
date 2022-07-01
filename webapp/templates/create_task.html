@@ -6,7 +6,7 @@
         <label>Title:</label><br/>
         <input type="text" name="title"/><br/>
         <label>Status:</label><br/>
-        <select>
+        <select name="status">
             {% for value, status in statuses %}
                 <option value="{{ value }}"> {{ status }}</option>
             {% endfor %}
