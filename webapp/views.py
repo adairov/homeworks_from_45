@@ -38,11 +38,13 @@ def update_task(request, pk):
         task.status = request.POST.get("status")
         task.deadline = request.POST.get("deadline")
         task.description = request.POST.get("description")
-        # if request.POST.get("deadline"):
-        #     deadline = request.POST.get("deadline")
-        # else:
-        #     deadline = None
-        # description = request.POST.get("description")
-        # new_task = ToDoList.objects.create(title=title, status=status, deadline=deadline, description=description)
         task.save()
         return redirect("view", pk=task.pk)
+
+def delete_task(request, pk):
+    task = get_object_or_404(ToDoList, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'delete_task.html', {"task": task})
+    else:
+        task.delete()
+        return redirect("index")
