@@ -7,7 +7,10 @@
          <a class="nav-link active" aria-current="page" href="{% url "update" task.pk %}">Update task</a>
      </li>
      <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="{% url "delete" task.pk %}">Delete task</a>
+{#         <a class="nav-link active" aria-current="page" href="{% url "delete" task.pk %}">Delete task</a>#}
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskDeleteModal">
+          Delete task
+          </button>
      </li>
  {% endblock %}
 {% block content %}
@@ -17,5 +20,26 @@
         <p><b>Задачу сдать к - </b> {{ task.deadline }}</p>
         <p><b>Описание задачи - </b> {{ task.description }}</p>
         <a href="{% url "index" %}">На главную</a>
+
+<div class="modal fade" id="taskDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete the task {{ task.title }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="{% url "delete" task.pk %}" method="post">
+{% csrf_token %}
+    <button type="submit">Yes</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 {% endblock %}
