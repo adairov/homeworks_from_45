@@ -1,0 +1,22 @@
+[
+{
+    "model": "webapp.todolist",
+    "pk": 5,
+    "fields": {
+        "title": "('контрольная',)",
+        "status": "new",
+        "deadline": "2022-07-02",
+        "description": "повторить CRUD "
+    }
+},
+{
+    "model": "webapp.todolist",
+    "pk": 6,
+    "fields": {
+        "title": "('ДЗ 47',)",
+        "status": "new",
+        "deadline": "2022-07-01",
+        "description": "Нужно сдать вовремя "
+    }
+}
+]
