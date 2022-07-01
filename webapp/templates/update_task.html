@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block nav %}
+
+ {% endblock %}
+{% block content %}
+<body>
+    <form action="/tasks/add/" method="post">
+        {% csrf_token %}
+        <label>Title:</label><br/>
+        <input type="text" name="title" value="{{ task.title }}"/><br/>
+        <label>Status:</label><br/>
+        <select name="status">
+{#            {% for value, status in statuses %}#}
+{#                 <option value="{{ value }}"> {{ status }}</option>#}
+{#            {% endfor %}#}
+            {{ task.status }}
+        </select><br/>
+        <label>Deadline(YYYY-MM-DD):</label><br/>
+        <input type="text" name="deadline" value="{{ task.deadline|date:"Y-m-d"}}"/><br/>
+        <br/>
+        <textarea name="description">{{ task.description }} </textarea>
+        <br/>
+        <input type="submit" value="Update"/>
+    </form>
+</body>
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
@@ -30,4 +30,19 @@ def task_view(request, pk):
     return render(request, 'task_view.html', {'task':task})
 
 def update_task(request, pk):
-    pass
+    task = get_object_or_404(ToDoList, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'update_task.html', {"task": task})
+    else:
+        task.title = request.POST.get("title"),
+        task.status = request.POST.get("status")
+        task.deadline = request.POST.get("deadline")
+        task.description = request.POST.get("description")
+        # if request.POST.get("deadline"):
+        #     deadline = request.POST.get("deadline")
+        # else:
+        #     deadline = None
+        # description = request.POST.get("description")
+        # new_task = ToDoList.objects.create(title=title, status=status, deadline=deadline, description=description)
+        task.save()
+        return redirect("view", pk=task.pk)
